@@ -1,0 +1,22 @@
+/*
+Theme Name: Splendid
+Theme URI: https://splendidglazing.co.uk/
+Author: LaunchFlow
+Author URI: https://launchflow.uk/
+Description: Custom theme for Splendid Double Glazing Ltd. Implements the approved green design across the 38-route website. Pairs with the Splendid Core companion plugin for enquiries, settings, SEO output and custom blocks.
+Version: 1.0.0
+Requires at least: 6.5
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: splendid
+Tags: custom-menu, editor-style, block-patterns, full-width-template, translation-ready
+
+Fonts in assets/fonts are supplied by the client handover package (identified as DM Sans and
+DM Serif Display, SIL Open Font License 1.1). See assets/fonts/README.md.
+Icon paths are from Lucide (ISC licence). See inc/icons.php.
+
+The real stylesheet is assets/css/design.css (ported from the approved design) plus
+assets/css/wp.css (WordPress-specific additions). This file exists for theme metadata.
+*/

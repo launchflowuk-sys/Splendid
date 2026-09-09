@@ -1,0 +1,670 @@
+[
+ {
+  "route": "/",
+  "slug": "home",
+  "parent": null,
+  "title": "A brighter way to live",
+  "template": "home",
+  "file": "home.html",
+  "seo_title": "A brighter way to live | Splendid Double Glazing",
+  "meta_description": "Windows, doors and glazed living spaces from Splendid Double Glazing on Sidcup Road. Explore the collection and discuss your home improvement project.",
+  "status": "publish",
+  "menu_order": 0,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "home"
+  },
+  "front_page": true
+ },
+ {
+  "route": "/windows",
+  "slug": "windows",
+  "parent": null,
+  "title": "Windows",
+  "template": "product-hub",
+  "file": "windows.html",
+  "seo_title": "Windows | Splendid Double Glazing",
+  "meta_description": "Explore window styles and materials with Splendid Double Glazing on Sidcup Road. Discuss glazing options and a tailored written quotation.",
+  "status": "publish",
+  "menu_order": 1,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "product-hub"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows/double-glazing",
+  "slug": "double-glazing",
+  "parent": "windows",
+  "title": "Double glazing",
+  "template": "product",
+  "file": "windows--double-glazing.html",
+  "seo_title": "Double glazing | Splendid Double Glazing",
+  "meta_description": "Two panes of glass, one thoughtful upgrade. Replacement double glazing helps reduce draughts and brings a fresh finish to the rooms you use every day.",
+  "status": "publish",
+  "menu_order": 2,
+  "excerpt": "Two panes of glass, one thoughtful upgrade. Replacement double glazing helps reduce draughts and brings a fresh finish to the rooms you use every day.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Everyday comfort"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows/triple-glazing",
+  "slug": "triple-glazing",
+  "parent": "windows",
+  "title": "Triple glazing",
+  "template": "product",
+  "file": "windows--triple-glazing.html",
+  "seo_title": "Triple glazing | Splendid Double Glazing",
+  "meta_description": "An additional pane of glass offers another option when thermal insulation is a priority. Explore whether triple glazing is the right fit for your home.",
+  "status": "publish",
+  "menu_order": 3,
+  "excerpt": "An additional pane of glass offers another option when thermal insulation is a priority. Explore whether triple glazing is the right fit for your home.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Extra insulation"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows/upvc-windows",
+  "slug": "upvc-windows",
+  "parent": "windows",
+  "title": "uPVC windows",
+  "template": "product",
+  "file": "windows--upvc-windows.html",
+  "seo_title": "uPVC windows | Splendid Double Glazing",
+  "meta_description": "Clean lines, versatile styles and easy care. uPVC windows are a practical choice for refreshing a family home without adding a demanding maintenance routine.",
+  "status": "publish",
+  "menu_order": 4,
+  "excerpt": "Clean lines, versatile styles and easy care. uPVC windows are a practical choice for refreshing a family home without adding a demanding maintenance routine.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Easy living"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows/aluminium-windows",
+  "slug": "aluminium-windows",
+  "parent": "windows",
+  "title": "Aluminium windows",
+  "template": "product",
+  "file": "windows--aluminium-windows.html",
+  "seo_title": "Aluminium windows | Splendid Double Glazing",
+  "meta_description": "Refined profiles and a contemporary finish put daylight at the centre of your home. Aluminium is a natural partner for modern renovations and extensions.",
+  "status": "publish",
+  "menu_order": 5,
+  "excerpt": "Refined profiles and a contemporary finish put daylight at the centre of your home. Aluminium is a natural partner for modern renovations and extensions.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Architectural lines"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows/sash-windows",
+  "slug": "sash-windows",
+  "parent": "windows",
+  "title": "Sash windows",
+  "template": "product",
+  "file": "windows--sash-windows.html",
+  "seo_title": "Sash windows | Splendid Double Glazing",
+  "meta_description": "Preserve the proportions that make a period home special. Sliding sash styles bring familiar elegance to terraces, townhouses and traditional properties.",
+  "status": "publish",
+  "menu_order": 6,
+  "excerpt": "Preserve the proportions that make a period home special. Sliding sash styles bring familiar elegance to terraces, townhouses and traditional properties.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Timeless character"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows/bay-windows",
+  "slug": "bay-windows",
+  "parent": "windows",
+  "title": "Bay windows",
+  "template": "product",
+  "file": "windows--bay-windows.html",
+  "seo_title": "Bay windows | Splendid Double Glazing",
+  "meta_description": "Turn a window into the focal point of your room. Bay designs create an expansive outlook and make the most of the light through the day.",
+  "status": "publish",
+  "menu_order": 7,
+  "excerpt": "Turn a window into the focal point of your room. Bay designs create an expansive outlook and make the most of the light through the day.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Light from every angle"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors",
+  "slug": "doors",
+  "parent": null,
+  "title": "Doors",
+  "template": "product-hub",
+  "file": "doors.html",
+  "seo_title": "Doors | Splendid Double Glazing",
+  "meta_description": "Explore entrance and garden door ideas with Splendid Double Glazing. Discuss materials, glazing, opening arrangements and your project.",
+  "status": "publish",
+  "menu_order": 8,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "product-hub"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors/composite-doors",
+  "slug": "composite-doors",
+  "parent": "doors",
+  "title": "Composite doors",
+  "template": "product",
+  "file": "doors--composite-doors.html",
+  "seo_title": "Composite doors | Splendid Double Glazing",
+  "meta_description": "Set the tone before you step inside. Explore composite entrance doors with characterful colours, glazing details and hardware that complete your home.",
+  "status": "publish",
+  "menu_order": 9,
+  "excerpt": "Set the tone before you step inside. Explore composite entrance doors with characterful colours, glazing details and hardware that complete your home.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "First impressions"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors/upvc-doors",
+  "slug": "upvc-doors",
+  "parent": "doors",
+  "title": "uPVC doors",
+  "template": "product",
+  "file": "doors--upvc-doors.html",
+  "seo_title": "uPVC doors | Splendid Double Glazing",
+  "meta_description": "A versatile choice for front, side and rear entrances. uPVC doors combine a clean appearance with straightforward care.",
+  "status": "publish",
+  "menu_order": 10,
+  "excerpt": "A versatile choice for front, side and rear entrances. uPVC doors combine a clean appearance with straightforward care.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Practical by design"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors/aluminium-doors",
+  "slug": "aluminium-doors",
+  "parent": "doors",
+  "title": "Aluminium doors",
+  "template": "product",
+  "file": "doors--aluminium-doors.html",
+  "seo_title": "Aluminium doors | Splendid Double Glazing",
+  "meta_description": "Bring crisp architectural lines to your entrance or extension with aluminium doors in a finish chosen for your property.",
+  "status": "publish",
+  "menu_order": 11,
+  "excerpt": "Bring crisp architectural lines to your entrance or extension with aluminium doors in a finish chosen for your property.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Modern living"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors/bifold-doors",
+  "slug": "bifold-doors",
+  "parent": "doors",
+  "title": "Bifold doors",
+  "template": "product",
+  "file": "doors--bifold-doors.html",
+  "seo_title": "Bifold doors | Splendid Double Glazing",
+  "meta_description": "Fold back the boundary between your home and garden. Bifold doors create a generous opening for long lunches, warm evenings and everyday living.",
+  "status": "publish",
+  "menu_order": 12,
+  "excerpt": "Fold back the boundary between your home and garden. Bifold doors create a generous opening for long lunches, warm evenings and everyday living.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Open up your home"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors/patio-doors",
+  "slug": "patio-doors",
+  "parent": "doors",
+  "title": "Sliding patio doors",
+  "template": "product",
+  "file": "doors--patio-doors.html",
+  "seo_title": "Sliding patio doors | Splendid Double Glazing",
+  "meta_description": "Expansive glass and a smooth sliding opening bring your garden into view. A considered choice where you want light without a door swinging into the room.",
+  "status": "publish",
+  "menu_order": 13,
+  "excerpt": "Expansive glass and a smooth sliding opening bring your garden into view. A considered choice where you want light without a door swinging into the room.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "A wider perspective"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/doors/french-doors",
+  "slug": "french-doors",
+  "parent": "doors",
+  "title": "French doors",
+  "template": "product",
+  "file": "doors--french-doors.html",
+  "seo_title": "French doors | Splendid Double Glazing",
+  "meta_description": "A familiar pair of glazed doors can change the way a room feels. French doors offer an elegant link to a patio, balcony or garden.",
+  "status": "publish",
+  "menu_order": 14,
+  "excerpt": "A familiar pair of glazed doors can change the way a room feels. French doors offer an elegant link to a patio, balcony or garden.",
+  "meta": {
+   "_splendid_template": "product",
+   "_splendid_tag": "Classic connection"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/conservatories",
+  "slug": "conservatories",
+  "parent": null,
+  "title": "Conservatories",
+  "template": "living-space",
+  "file": "conservatories.html",
+  "seo_title": "Conservatories | Splendid Double Glazing",
+  "meta_description": "Explore ideas for a glazed living space, from traditional conservatories to contemporary layouts. Discuss your plans with Splendid Double Glazing.",
+  "status": "publish",
+  "menu_order": 15,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "living-space"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/porches",
+  "slug": "porches",
+  "parent": null,
+  "title": "Porches",
+  "template": "living-space",
+  "file": "porches.html",
+  "seo_title": "Porches | Splendid Double Glazing",
+  "meta_description": "Plan a welcoming entrance with Splendid Double Glazing. Explore porch layouts, glazing, privacy and practical details for your home.",
+  "status": "publish",
+  "menu_order": 16,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "living-space"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/about",
+  "slug": "about",
+  "parent": null,
+  "title": "Our story",
+  "template": "about",
+  "file": "about.html",
+  "seo_title": "Our story | Splendid Double Glazing",
+  "meta_description": "Meet Splendid Double Glazing, based at 758 Sidcup Road, London. Learn about our approach to design, product selection and installation.",
+  "status": "publish",
+  "menu_order": 17,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "about"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/service-areas",
+  "slug": "service-areas",
+  "parent": null,
+  "title": "Areas we cover",
+  "template": "areas-hub",
+  "file": "service-areas.html",
+  "seo_title": "Areas we cover | Splendid Double Glazing",
+  "meta_description": "Planning a glazing project in Sidcup or nearby? Contact Splendid Double Glazing with your postcode to confirm coverage and survey availability.",
+  "status": "publish",
+  "menu_order": 18,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "areas-hub"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/gallery",
+  "slug": "gallery",
+  "parent": null,
+  "title": "Inspiration",
+  "template": "gallery",
+  "file": "gallery.html",
+  "seo_title": "Inspiration | Splendid Double Glazing",
+  "meta_description": "Explore window, door and living-space inspiration from Splendid Double Glazing. Architectural images are illustrative design concepts.",
+  "status": "publish",
+  "menu_order": 19,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "gallery"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/reviews",
+  "slug": "reviews",
+  "parent": null,
+  "title": "Customer reviews",
+  "template": "reviews",
+  "file": "reviews.html",
+  "seo_title": "Customer reviews | Splendid Double Glazing",
+  "meta_description": "Find independent customer feedback for Splendid Double Glazing on Sidcup Road and consider what matters when choosing your installer.",
+  "status": "publish",
+  "menu_order": 20,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "reviews"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/blog",
+  "slug": "blog",
+  "parent": null,
+  "title": "Advice & ideas",
+  "template": "advice-hub",
+  "file": "blog.html",
+  "seo_title": "Advice & ideas | Splendid Double Glazing",
+  "meta_description": "Practical window and door guides from Splendid Double Glazing. Explore materials, garden doors and how to prepare for a replacement project.",
+  "status": "publish",
+  "menu_order": 21,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "advice-hub"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/contact",
+  "slug": "contact",
+  "parent": null,
+  "title": "Contact us",
+  "template": "enquiry",
+  "file": "contact.html",
+  "seo_title": "Contact us | Splendid Double Glazing",
+  "meta_description": "Contact Splendid Double Glazing on 020 7998 6802 or info@splendidglazing.co.uk. Find us at 758 Sidcup Road, London, SE9 3NS.",
+  "status": "publish",
+  "menu_order": 22,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "enquiry"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/free-quote",
+  "slug": "free-quote",
+  "parent": null,
+  "title": "Get a free quote",
+  "template": "enquiry",
+  "file": "free-quote.html",
+  "seo_title": "Get a free quote | Splendid Double Glazing",
+  "meta_description": "Tell Splendid Double Glazing about your windows, doors or glazed living-space project. Send your requirements and request a tailored quotation.",
+  "status": "publish",
+  "menu_order": 23,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "enquiry"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/estimate-calculator",
+  "slug": "estimate-calculator",
+  "parent": null,
+  "title": "Quote planner",
+  "template": "planner",
+  "file": "estimate-calculator.html",
+  "seo_title": "Quote planner | Splendid Double Glazing",
+  "meta_description": "Plan your glazing enquiry with Splendid Double Glazing. Choose a product, material and quantity to request a tailored written price.",
+  "status": "publish",
+  "menu_order": 24,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "planner"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/privacy-policy",
+  "slug": "privacy-policy",
+  "parent": null,
+  "title": "Privacy notice",
+  "template": "legal",
+  "file": "privacy-policy.html",
+  "seo_title": "Privacy notice | Splendid Double Glazing",
+  "meta_description": "How Splendid Double Glazing handles personal information, website enquiries and privacy requests. Read our privacy notice and contact details.",
+  "status": "draft",
+  "menu_order": 25,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "legal"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/cookie-policy",
+  "slug": "cookie-policy",
+  "parent": null,
+  "title": "Cookie notice",
+  "template": "legal",
+  "file": "cookie-policy.html",
+  "seo_title": "Cookie notice | Splendid Double Glazing",
+  "meta_description": "Information about cookies and similar technologies used on the Splendid Double Glazing website, including how to manage your choices.",
+  "status": "draft",
+  "menu_order": 26,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "legal"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/terms-of-service",
+  "slug": "terms-of-service",
+  "parent": null,
+  "title": "Website terms",
+  "template": "legal",
+  "file": "terms-of-service.html",
+  "seo_title": "Website terms | Splendid Double Glazing",
+  "meta_description": "Website terms for Splendid Double Glazing, including quotations, illustrative images, external links and business contact details.",
+  "status": "draft",
+  "menu_order": 27,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "legal"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-sidcup",
+  "slug": "windows-doors-sidcup",
+  "parent": null,
+  "title": "Windows and doors in Sidcup",
+  "template": "local-area",
+  "file": "windows-doors-sidcup.html",
+  "seo_title": "Windows and doors in Sidcup | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your Sidcup home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 28,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "Sidcup"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-eltham",
+  "slug": "windows-doors-eltham",
+  "parent": null,
+  "title": "Windows and doors in Eltham",
+  "template": "local-area",
+  "file": "windows-doors-eltham.html",
+  "seo_title": "Windows and doors in Eltham | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your Eltham home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 29,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "Eltham"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-bexley",
+  "slug": "windows-doors-bexley",
+  "parent": null,
+  "title": "Windows and doors in Bexley",
+  "template": "local-area",
+  "file": "windows-doors-bexley.html",
+  "seo_title": "Windows and doors in Bexley | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your Bexley home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 30,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "Bexley"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-bromley",
+  "slug": "windows-doors-bromley",
+  "parent": null,
+  "title": "Windows and doors in Bromley",
+  "template": "local-area",
+  "file": "windows-doors-bromley.html",
+  "seo_title": "Windows and doors in Bromley | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your Bromley home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 31,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "Bromley"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-chislehurst",
+  "slug": "windows-doors-chislehurst",
+  "parent": null,
+  "title": "Windows and doors in Chislehurst",
+  "template": "local-area",
+  "file": "windows-doors-chislehurst.html",
+  "seo_title": "Windows and doors in Chislehurst | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your Chislehurst home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 32,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "Chislehurst"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-south-east-london",
+  "slug": "windows-doors-south-east-london",
+  "parent": null,
+  "title": "Windows and doors in South East London",
+  "template": "local-area",
+  "file": "windows-doors-south-east-london.html",
+  "seo_title": "Windows and doors in South East London | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your South East London home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 33,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "South East London"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/windows-doors-kent",
+  "slug": "windows-doors-kent",
+  "parent": null,
+  "title": "Windows and doors in North Kent",
+  "template": "local-area",
+  "file": "windows-doors-kent.html",
+  "seo_title": "Windows and doors in North Kent | Splendid Double Glazing",
+  "meta_description": "Explore windows and doors for your North Kent home. Contact Splendid Double Glazing to confirm coverage and discuss your project.",
+  "status": "draft",
+  "menu_order": 34,
+  "excerpt": "",
+  "meta": {
+   "_splendid_template": "local-area",
+   "_splendid_area_name": "North Kent"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/blog/choosing-your-window-material",
+  "slug": "choosing-your-window-material",
+  "parent": "blog",
+  "title": "uPVC or aluminium: where to begin?",
+  "template": "article",
+  "file": "blog--choosing-your-window-material.html",
+  "seo_title": "uPVC or aluminium: where to begin? | Splendid Double Glazing",
+  "meta_description": "Start with the way you want your home to look, then consider the practical details.",
+  "status": "publish",
+  "menu_order": 35,
+  "excerpt": "Start with the way you want your home to look, then consider the practical details.",
+  "meta": {
+   "_splendid_template": "article",
+   "_splendid_category": "WINDOW GUIDE"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/blog/bifold-or-sliding-doors",
+  "slug": "bifold-or-sliding-doors",
+  "parent": "blog",
+  "title": "Bifold or sliding? Find your garden connection.",
+  "template": "article",
+  "file": "blog--bifold-or-sliding-doors.html",
+  "seo_title": "Bifold or sliding? Find your garden connection. | Splendid Double Glazing",
+  "meta_description": "Two ways to open up a room, with different advantages for the way you live.",
+  "status": "publish",
+  "menu_order": 36,
+  "excerpt": "Two ways to open up a room, with different advantages for the way you live.",
+  "meta": {
+   "_splendid_template": "article",
+   "_splendid_category": "DESIGN NOTES"
+  },
+  "front_page": false
+ },
+ {
+  "route": "/blog/planning-your-window-replacement",
+  "slug": "planning-your-window-replacement",
+  "parent": "blog",
+  "title": "Your window project, without the guesswork.",
+  "template": "article",
+  "file": "blog--planning-your-window-replacement.html",
+  "seo_title": "Your window project, without the guesswork. | Splendid Double Glazing",
+  "meta_description": "A few useful details can make your first conversation much more productive.",
+  "status": "publish",
+  "menu_order": 37,
+  "excerpt": "A few useful details can make your first conversation much more productive.",
+  "meta": {
+   "_splendid_template": "article",
+   "_splendid_category": "PROJECT PLANNING"
+  },
+  "front_page": false
+ }
+]

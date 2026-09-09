@@ -1,0 +1,311 @@
+/*
+ * WordPress-specific additions to the approved design.
+ *
+ * design.css is the ported original and is not edited. Everything here either
+ * (a) replaces behaviour the React prototype got from a component library
+ * (the mobile drawer, submenu toggles, form states), or (b) covers WordPress
+ * output the prototype never had (core blocks, admin bar, alignment classes).
+ */
+
+/* ---------------------------------------------------------------
+ * Eyebrow rule
+ * The source printed an empty <span> to draw the short dash. Editable
+ * paragraphs cannot reliably keep an empty span, so the dash is drawn with a
+ * pseudo element on paragraph eyebrows only - inline <span class="eyebrow">
+ * labels in cards and form headings never had the dash and still do not.
+ * --------------------------------------------------------------- */
+p.eyebrow::before {
+	content: "";
+	width: 23px;
+	height: 1px;
+	background: currentColor;
+	flex-shrink: 0;
+}
+p.eyebrow > span:empty { display: none; }
+
+/* ---------------------------------------------------------------
+ * Accessible submenu toggles (touch and keyboard, without losing hover)
+ * --------------------------------------------------------------- */
+.navgroup { position: relative; }
+.navgroup-toggle {
+	background: none;
+	border: 0;
+	padding: 10px 4px;
+	color: inherit;
+	line-height: 1;
+	font-size: 15px;
+}
+.navgroup-toggle:hover { color: var(--brand); }
+.navgroup.is-open .megamenu { display: block; }
+.navgroup-toggle[aria-expanded="true"] span { display: inline-block; transform: rotate(180deg); }
+
+/* ---------------------------------------------------------------
+ * Mobile drawer (replaces the prototype's Sheet component)
+ * --------------------------------------------------------------- */
+.mobile-overlay {
+	position: fixed;
+	inset: 0;
+	background: #123c2b66;
+	z-index: 60;
+	opacity: 0;
+	animation: splendidFade .25s forwards;
+}
+.mobile-sheet {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: min(380px, 88vw);
+	background: #fff;
+	z-index: 70;
+	box-shadow: -18px 0 45px #123c2b1f;
+	transform: translateX(100%);
+	animation: splendidSlide .28s forwards;
+}
+@keyframes splendidFade { to { opacity: 1; } }
+@keyframes splendidSlide { to { transform: translateX(0); } }
+.mobile-sheet-head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 20px;
+	margin-bottom: 22px;
+}
+.mobile-sheet-head h2 {
+	font-size: 21px;
+	letter-spacing: -.03em;
+	margin: 0 0 4px;
+}
+.mobile-sheet-head p {
+	margin: 0;
+	font-size: 13px;
+	color: #5b686d;
+}
+.mobile-close {
+	background: none;
+	border: 0;
+	padding: 6px;
+	color: var(--ink);
+	flex-shrink: 0;
+}
+.mobile-group { position: relative; }
+.mobile-group > a { padding-right: 74px; }
+.mobile-toggle {
+	position: absolute;
+	top: 2px;
+	right: 30px;
+	background: none;
+	border: 0;
+	padding: 10px;
+	color: var(--brand);
+	font-size: 16px;
+	line-height: 1;
+}
+.mobile-toggle[aria-expanded="true"] span[aria-hidden] { display: inline-block; transform: rotate(180deg); }
+.mobile-children { padding: 2px 0 12px 14px; }
+.mobile-sheet .mobile-children > a {
+	display: block;
+	border: 0;
+	padding: 7px 0;
+	font-size: 15px;
+	color: #5b686d;
+}
+.mobile-sheet .mobile-children > a:hover { color: var(--brand); }
+body.splendid-drawer-open { overflow: hidden; }
+
+/* The header CTA shortens on small screens rather than wrapping. */
+.header-cta-short { display: none; }
+@media (max-width: 700px) {
+	.header-cta-full { display: none; }
+	.header-cta-short { display: inline; }
+}
+
+/* ---------------------------------------------------------------
+ * Enquiry form: validation, submitting and result states
+ * --------------------------------------------------------------- */
+.splendid-form .field.has-error input,
+.splendid-form .field.has-error textarea,
+.splendid-form .field.has-error select {
+	border-color: #b3261e;
+	box-shadow: 0 0 0 1px #b3261e;
+}
+.field-error {
+	display: block;
+	margin-top: 6px;
+	color: #b3261e;
+	font-size: 13px;
+	font-weight: 550;
+}
+.form-summary {
+	margin: 0 0 22px;
+	padding: 15px 17px;
+	border: 1px solid #b3261e;
+	border-left-width: 4px;
+	border-radius: 7px;
+	background: #fdf3f2;
+	color: #7c1d16;
+	font-size: 14px;
+}
+.form-summary:focus { outline: 3px solid #258449; outline-offset: 3px; }
+.form-summary ul { margin: 8px 0 0; padding-left: 18px; }
+.form-summary a { text-decoration: underline; }
+.splendid-form[data-state="sending"] .submit { opacity: .55; pointer-events: none; }
+.splendid-honeypot {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+.enquiry-received { text-align: left; }
+.enquiry-received .success-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: #e8f4eb;
+	color: var(--brand);
+	margin-bottom: 22px;
+}
+.enquiry-received h2 { margin-bottom: 14px; font-size: 2rem; }
+.splendid-quantity-input {
+	width: 68px;
+	text-align: center;
+}
+
+/* ---------------------------------------------------------------
+ * Gallery filter
+ * Items are hidden by a class, so every card stays visible if the script fails.
+ * --------------------------------------------------------------- */
+.gallery-section .is-filtered-out { display: none; }
+.gallery-empty { margin-top: 30px; color: #5b686d; }
+
+/* ---------------------------------------------------------------
+ * WordPress core output
+ * --------------------------------------------------------------- */
+.screen-reader-text {
+	border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+	background-color: #fff;
+	clip-path: none;
+	color: #123c2b;
+	display: block;
+	font-size: 14px;
+	height: auto;
+	left: 5px;
+	padding: 15px 23px;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+main .alignwide, main .alignfull { max-width: none; }
+.splendid-pagination {
+	display: flex;
+	gap: 14px;
+	justify-content: center;
+	padding: 40px 0 0;
+}
+.splendid-pagination .page-numbers {
+	padding: 8px 14px;
+	border: 1px solid var(--line);
+	border-radius: 6px;
+}
+.splendid-pagination .current { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* Editor-inserted images inside ported sections keep the design's radius. */
+main figure.wp-block-image img { border-radius: 9px; }
+
+/* ---------------------------------------------------------------
+ * Small screens: no horizontal scrolling at 320px
+ * --------------------------------------------------------------- */
+html, body { overflow-x: hidden; }
+@media (max-width: 380px) {
+	.brand-main { font-size: 34px; }
+	.topbar { font-size: 10px; padding: 0 5%; gap: 8px; }
+	.topbar > span:nth-child(2) { display: none; }
+	.button { padding: 15px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mobile-sheet, .mobile-overlay { animation: none; transform: none; opacity: 1; }
+}
+
+/* ---------------------------------------------------------------
+ * FAQ accordions
+ * The prototype used a component library accordion; WordPress ships a native
+ * <details> block, so the FAQ is editable with core blocks and works with no
+ * JavaScript. These rules reproduce the original trigger, answer and divider.
+ * --------------------------------------------------------------- */
+.faq-list .wp-block-details { border-bottom: 1px solid var(--line); }
+.faq-list .wp-block-details:last-child { border-bottom: 0; }
+.faq-list summary {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 24px 0;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.55;
+	letter-spacing: 0;
+	cursor: pointer;
+	list-style: none;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+	content: "";
+	flex-shrink: 0;
+	width: 17px;
+	height: 17px;
+	margin-top: 4px;
+	background: currentColor;
+	transition: transform .25s;
+	-webkit-mask: var(--splendid-chevron) center / contain no-repeat;
+	mask: var(--splendid-chevron) center / contain no-repeat;
+}
+.faq-list details[open] summary::after { transform: rotate(180deg); }
+.faq-list summary:hover { color: var(--brand); }
+.faq-list .wp-block-details > :not(summary) {
+	margin: 0;
+	padding-bottom: 24px;
+	font-size: 16px;
+	line-height: 1.8;
+	color: #657176;
+}
+:root {
+	--splendid-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) {
+	.faq-list summary::after { transition: none; }
+}
+
+/* ---------------------------------------------------------------
+ * Feature lines
+ * The prototype printed a check icon inside each feature paragraph. In editable
+ * content the icon is drawn by CSS, so the text stays plain editable text.
+ * --------------------------------------------------------------- */
+.details-box > p.feature::before {
+	content: "";
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	margin-top: 4px;
+	background: var(--brand);
+	-webkit-mask: var(--splendid-check) center / contain no-repeat;
+	mask: var(--splendid-check) center / contain no-repeat;
+}
+:root {
+	--splendid-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+}

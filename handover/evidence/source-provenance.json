@@ -1,0 +1,9 @@
+{
+  "project": "Splendid Double Glazing",
+  "project_id": "appgprj_6aa19ddfe090819199eb07b8de306eb4",
+  "version": 2,
+  "commit": "d7052cd685806d2b0eae919f5c37eced3d256690",
+  "captured": "2026-09-09",
+  "source_worktree_clean": true,
+  "note": "Selected design-source export; no deployment credentials, environment files, .git history or generated dependencies included. This is a WordPress implementation handover, not a finished WordPress theme."
+}

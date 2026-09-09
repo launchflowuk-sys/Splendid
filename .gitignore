@@ -1,0 +1,7 @@
+# Local test WordPress and build output
+/dist/
+/.wp-site/
+debug.log
+*.zip
+.DS_Store
+node_modules/

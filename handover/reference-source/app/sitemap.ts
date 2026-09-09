@@ -1,0 +1,3 @@
+import type {MetadataRoute} from 'next';
+import {windows,doors,areas,articles} from './content';
+export default function sitemap():MetadataRoute.Sitemap{const root='https://splendid-double-glazing.shujaat818.chatgpt.site';const paths=['','windows','doors','conservatories','porches','about','gallery','reviews','blog','contact','free-quote','estimate-calculator','service-areas','privacy-policy','cookie-policy','terms-of-service',...windows.map(p=>'windows/'+p.slug),...doors.map(p=>'doors/'+p.slug),...areas.map(a=>'windows-doors-'+a[0]),...articles.map(a=>'blog/'+a.slug)];return paths.map(path=>({url:root+'/'+path,changeFrequency:'monthly',priority:path===''?1:.7}));}
