@@ -140,6 +140,13 @@
 
 		var data = new FormData( form );
 
+		// The form carries the no-JavaScript fallback's own nonce as _wpnonce.
+		// WordPress's REST API reads a _wpnonce field BEFORE the X-WP-Nonce
+		// header, checks it as a REST nonce, and rejects every submission with
+		// "Cookie check failed". The REST request is verified by the header.
+		data.delete( '_wpnonce' );
+		data.delete( '_wp_http_referer' );
+
 		setSending( form, true );
 
 		function post( nonce ) {
