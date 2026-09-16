@@ -334,6 +334,18 @@ function splendid_enquiry_transport_is_configured() {
 		}
 	}
 
+	// Others (FluentSMTP, for one) replace wp_mail() outright and never touch
+	// those hooks. A wp_mail() defined anywhere but core is a mail plugin.
+	if ( function_exists( 'wp_mail' ) ) {
+		$reflection = new ReflectionFunction( 'wp_mail' );
+		$defined_in = wp_normalize_path( (string) $reflection->getFileName() );
+		$core_file  = wp_normalize_path( ABSPATH . WPINC . '/pluggable.php' );
+
+		if ( '' !== $defined_in && $defined_in !== $core_file ) {
+			return true;
+		}
+	}
+
 	return false;
 }
 
