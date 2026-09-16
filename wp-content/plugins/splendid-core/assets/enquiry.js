@@ -104,6 +104,33 @@
 		}
 	}
 
+	/**
+	 * A nonce that has not been through any cache. Falls back to the one in
+	 * the page if the refresh itself fails.
+	 */
+	function freshNonce() {
+		if ( ! config.nonceUrl ) {
+			return Promise.resolve( config.nonce || '' );
+		}
+
+		var url = config.nonceUrl + ( config.nonceUrl.indexOf( '?' ) === -1 ? '?' : '&' ) + '_=' + Date.now();
+
+		return fetch( url, { credentials: 'omit', cache: 'no-store' } )
+			.then( function ( response ) {
+				return response.json();
+			} )
+			.then( function ( body ) {
+				if ( body && body.nonce ) {
+					config.nonce = body.nonce;
+				}
+
+				return config.nonce || '';
+			} )
+			.catch( function () {
+				return config.nonce || '';
+			} );
+	}
+
 	function submit( form ) {
 		var endpoint = form.getAttribute( 'data-rest' );
 
@@ -115,16 +142,33 @@
 
 		setSending( form, true );
 
-		fetch( endpoint, {
-			method: 'POST',
-			credentials: 'same-origin',
-			headers: { 'X-WP-Nonce': config.nonce || '' },
-			body: data
-		} )
-			.then( function ( response ) {
+		function post( nonce ) {
+			return fetch( endpoint, {
+				method: 'POST',
+				// No cookies either way: this is a logged-out form. A signed-in
+				// editor's cookie would make WordPress reject the logged-out nonce.
+				credentials: 'omit',
+				headers: { 'X-WP-Nonce': nonce },
+				body: data
+			} ).then( function ( response ) {
 				return response.json().then( function ( body ) {
 					return { status: response.status, body: body };
 				} );
+			} );
+		}
+
+		// A page cache keeps the nonce printed into the page far longer than
+		// WordPress keeps it valid, so fetch a fresh one for every submission.
+		// If WordPress still rejects it, fetch again and retry once -- the
+		// rejected request never reached the enquiry handler, so nothing doubles.
+		freshNonce()
+			.then( post )
+			.then( function ( result ) {
+				if ( result.body && 'rest_cookie_invalid_nonce' === result.body.code ) {
+					return freshNonce().then( post );
+				}
+
+				return result;
 			} )
 			.then( function ( result ) {
 				setSending( form, false );
@@ -166,26 +210,6 @@
 		} );
 	}
 
-	/**
-	 * Caches can serve a stale nonce. Refresh it once on first interaction.
-	 */
-	function refreshNonce() {
-		if ( ! config.nonceUrl || ! window.fetch ) {
-			return;
-		}
-
-		fetch( config.nonceUrl, { credentials: 'same-origin' } )
-			.then( function ( response ) {
-				return response.json();
-			} )
-			.then( function ( body ) {
-				if ( body && body.nonce ) {
-					config.nonce = body.nonce;
-				}
-			} )
-			.catch( function () {} );
-	}
-
 	function ready( fn ) {
 		if ( 'loading' !== document.readyState ) {
 			fn();
@@ -201,17 +225,8 @@
 			return;
 		}
 
-		var refreshed = false;
-
 		Array.prototype.forEach.call( forms, function ( form ) {
 			initQuantity( form );
-
-			form.addEventListener( 'focusin', function () {
-				if ( ! refreshed ) {
-					refreshed = true;
-					refreshNonce();
-				}
-			} );
 
 			form.addEventListener( 'submit', function ( event ) {
 				if ( submit( form ) ) {

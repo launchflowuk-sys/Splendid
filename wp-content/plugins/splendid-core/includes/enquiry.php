@@ -600,7 +600,14 @@ function splendid_enquiry_rest_routes() {
 	register_rest_route( 'splendid/v1', '/nonce', array(
 		'methods'             => WP_REST_Server::READABLE,
 		'callback'            => static function () {
-			return rest_ensure_response( array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+			// A cached nonce is the bug this route exists to avoid. LiteSpeed
+			// caches REST GETs by default, so opt out explicitly.
+			do_action( 'litespeed_control_set_nocache', 'splendid nonce' );
+
+			$response = rest_ensure_response( array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+			$response->header( 'Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0' );
+
+			return $response;
 		},
 		'permission_callback' => '__return_true',
 	) );

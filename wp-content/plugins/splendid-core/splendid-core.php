@@ -3,7 +3,7 @@
  * Plugin Name:       Splendid Core
  * Plugin URI:        https://splendidglazing.co.uk/
  * Description:       Business data, enquiry handling, custom blocks, SEO output and the content importer for the Splendid Double Glazing website. Keeps durable data out of the theme so the design can be updated without losing enquiries or settings.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            LaunchFlow
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SPLENDID_CORE_VERSION', '1.1.1' );
+define( 'SPLENDID_CORE_VERSION', '1.1.2' );
 define( 'SPLENDID_CORE_FILE', __FILE__ );
 define( 'SPLENDID_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SPLENDID_CORE_URL', plugin_dir_url( __FILE__ ) );
