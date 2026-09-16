@@ -35,7 +35,10 @@ here blocks the rest of the build, and nothing here has been guessed at.
 8. **Data practices.** Host, mail and form providers, storage locations, who can
    access leads, retention periods, legal bases, international transfers, and
    whether analytics or marketing will exist. The privacy draft cannot be
-   finished without these.
+   finished without these. **Since enquiries now also go to BizzFlowUK**, this
+   also needs: a data processing agreement with LaunchFlow UK Limited, the
+   region BizzFlowUK hosts its data in, and how long enquiries are kept there.
+   The privacy draft already names BizzFlowUK and brackets these three facts.
 9. **VAT number, contract terms, cancellation arrangements and complaints
    process**, if these are to be published.
 
@@ -51,13 +54,41 @@ here blocks the rest of the build, and nothing here has been guessed at.
 | Enable enquiry storage in WordPress, if wanted | Answer 8 |
 | Production deployment, redirects from the existing site, canonical domain | Answer 7 |
 | Cookie inventory and, if optional cookies are added, a consent mechanism | Answer 8 |
+| Re-import the privacy draft so the site carries the BizzFlowUK wording (`wp splendid import --force`, or Settings → Splendid) — the importer skips pages already on the site | Nothing — can be done now |
+
+## Added after the build: BizzFlowUK
+
+Commissioned September 2026. Every website enquiry is now also sent into
+**BizzFlowUK**, the lead system the business uses to manage enquiries. The site's
+own notification email carries on exactly as before.
+
+- **How it connects.** The *BizzFlow Connector* plugin, installed on the live
+  site and maintained by LaunchFlow alongside BizzFlowUK (it is not kept in this
+  repository — ask LaunchFlow for the current zip). It listens to hooks this
+  plugin already fires; Splendid's theme and templates are untouched.
+- **Business code:** `splendid`. First live lead confirmed 16 September 2026.
+- **One change in `splendid-core`:** a vendor-neutral filter,
+  `splendid_enquiry_delivered_elsewhere`, in `includes/enquiry.php`. When the
+  notification email fails, it asks whether any other route has confirmed
+  receipt. The connector answers yes only once BizzFlowUK has accepted the
+  enquiry — so a visitor is no longer turned away during a mail outage when the
+  enquiry has in fact arrived, and is never told it arrived when it has not.
+  Where WordPress storage is on, the email is still queued so the team's own
+  notification catches up.
+- **Personal data held in WordPress.** If BizzFlowUK cannot be reached, the
+  connector keeps the enquiry for **no more than 24 hours** while it retries,
+  then deletes it. Its activity log records outcomes, never names or messages.
+  The privacy draft states this.
+- **To deploy this change:** replace `splendid-core` on the live site with this
+  version. Until then the site behaves as before: enquiries still reach
+  BizzFlowUK whenever the email sends.
 
 ## Deliberately not built
 
 None of these has been commissioned, and none is invented:
 
-- ecommerce checkout, instant pricing, finance application, booking calendar,
-  CRM subscription or WhatsApp link
+- ecommerce checkout, instant pricing, finance application, booking calendar
+  or WhatsApp link (a CRM has since been commissioned — see *BizzFlowUK* above)
 - a numeric quote estimator — the planner collects requirements and says plainly
   that it does not calculate a price
 - AggregateRating, opening hours, offers, prices or certification in structured data

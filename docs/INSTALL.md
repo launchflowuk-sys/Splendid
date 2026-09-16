@@ -67,7 +67,29 @@ before launch.
    what is stored, for how long and who can access it.
 
 The settings screen tells you honestly whether a transport is detected. Without
-one, enquiries are **refused with a retry message** rather than reported as sent.
+one, enquiries are **refused with a retry message** rather than reported as sent
+— unless BizzFlowUK has confirmed receipt (next section).
+
+## 4a. Connect BizzFlowUK
+
+Enquiries are also sent into BizzFlowUK, the business's lead system.
+
+1. Get the current *BizzFlow Connector* zip from LaunchFlow. It is maintained
+   alongside BizzFlowUK and is not stored in this repository.
+2. **Plugins → Add New → Upload Plugin**, install, activate.
+3. **Settings → BizzFlow**: tick *On*, business code `splendid`, leave the
+   address as `https://bizzflowuk.com`, lead source *Website*, Save.
+4. Press **Send a test lead**. A lead called "Connection Test" appears in
+   BizzFlowUK within a second or two — delete it there.
+
+Rebuilding the site from this repository does **not** reinstall the connector.
+Repeat these steps, or enquiries silently stop reaching BizzFlowUK while the
+email carries on.
+
+If the email fails and BizzFlowUK has accepted the enquiry, the visitor sees the
+normal success message (see `splendid_enquiry_delivered_elsewhere` in
+`includes/enquiry.php`). Details and the data-protection points are in
+`docs/OUTSTANDING.md` under *BizzFlowUK*.
 
 ## 5. Set the site language
 

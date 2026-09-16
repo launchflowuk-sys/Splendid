@@ -489,7 +489,37 @@ function splendid_enquiry_process( $raw ) {
 		return array( 'ok' => true, 'errors' => array(), 'message' => splendid_enquiry_copy( 'success' ) );
 	}
 
-	// Delivery failed. Queue only where storage is approved, otherwise report failure.
+	/**
+	 * Did another delivery route take it?
+	 *
+	 * Email is not the only place an enquiry can safely land. A connected lead
+	 * system that has confirmed receipt is a delivery in its own right, and
+	 * refusing the visitor because the mail server is having a bad morning --
+	 * when the enquiry is already sitting in the business's lead system -- turns
+	 * a customer away for no reason.
+	 *
+	 * Vendor-neutral on purpose: this plugin asks the question and knows nothing
+	 * about who answers it. A handler must return true ONLY once its system has
+	 * confirmed receipt. "Queued to try later" is not delivery and must return
+	 * false, so a visitor is never told an enquiry arrived when it has not.
+	 *
+	 * @param bool   $delivered Whether another route confirmed receipt.
+	 * @param array  $values    Cleaned values.
+	 * @param string $reason    Why the email failed.
+	 */
+	$elsewhere = (bool) apply_filters( 'splendid_enquiry_delivered_elsewhere', false, $checked['values'], $result['reason'] );
+
+	if ( $elsewhere ) {
+		// The team's own notification still matters. Where storage is approved,
+		// queue the email so it catches up once mail recovers.
+		if ( splendid_lead_record( $checked['values'], 'queued', $result['reason'] ) ) {
+			splendid_enquiry_schedule_retry();
+		}
+
+		return array( 'ok' => true, 'errors' => array(), 'message' => splendid_enquiry_copy( 'success' ), 'elsewhere' => true );
+	}
+
+	// Delivery failed everywhere. Queue only where storage is approved, otherwise report failure.
 	$queued = splendid_lead_record( $checked['values'], 'queued', $result['reason'] );
 
 	if ( $queued ) {
