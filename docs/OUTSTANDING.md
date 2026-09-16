@@ -79,9 +79,35 @@ own notification email carries on exactly as before.
   connector keeps the enquiry for **no more than 24 hours** while it retries,
   then deletes it. Its activity log records outcomes, never names or messages.
   The privacy draft states this.
-- **To deploy this change:** replace `splendid-core` on the live site with this
-  version. Until then the site behaves as before: enquiries still reach
-  BizzFlowUK whenever the email sends.
+- **Deployed.** Splendid Core 1.1.4 and BizzFlow Connector 1.1.0 are on the
+  live site (17 September 2026).
+
+## Live site status (17 September 2026)
+
+Fixed on the live site this week:
+
+- **The quote form never submitted with JavaScript on** (1.1.3/1.1.4). WordPress's
+  REST API checks a `_wpnonce` form field before the `X-WP-Nonce` header, and the
+  form carries the no-JavaScript fallback's `_wpnonce`, so every submission was
+  refused with "Cookie check failed". Fixed in `assets/enquiry.js` and, because
+  LiteSpeed serves its combined script for a year under an unchanged name, on the
+  server too (`splendid_enquiry_prefer_header_nonce`). The header nonce is still
+  verified. Any enquiry sent before this fix never arrived anywhere.
+- **Stale nonces from the page cache** (1.1.2). The nonce route is no longer
+  cached and the form fetches a fresh nonce on every submit.
+- **FluentSMTP was not recognised** (1.1.1), so every enquiry was refused as
+  "no transport". Detection now counts any non-core `wp_mail()`.
+- Smoke test passed end to end: visitor sees the confirmation, BizzFlowUK
+  accepted the lead.
+
+Still broken on the live site:
+
+| Problem | Effect | Fix |
+|---|---|---|
+| FluentSMTP: "SMTP Error: Could not authenticate" for info@splendidglazing.co.uk | No enquiry email reaches the business; leads only in BizzFlowUK | Correct mailbox password in Settings → FluentSMTP, then Retry the failed log entry |
+| The form's "Read our privacy notice" link goes to a draft page | Visitors get a 404 while the form collects personal data | Answer 8, fill the brackets, publish the privacy notice (and cookie notice and terms) |
+| The seven local area pages are drafts | Not reachable or indexed | Answer 4 |
+| No-JavaScript fallback still checks a page-cached nonce | A visitor with JavaScript off may see "link expired" | Low priority; exclude `/free-quote` and `/contact` from LiteSpeed page cache, or accept |
 
 ## Deliberately not built
 
@@ -107,9 +133,7 @@ None of these has been commissioned, and none is invented:
 - Browser testing at 1440, 1024, 768, 390 and 320px, keyboard navigation, focus
   handling, reduced motion and JavaScript-disabled rendering. The code is written
   for all of these but they have not been exercised in a browser yet.
-- A real enquiry submission end to end, including provider failure handling —
-  the sandbox this was built in has no mail transport, which is itself the
-  "no transport configured" path and does behave as designed (refuse, do not
-  claim delivery).
+- A real enquiry end to end **with the email arriving** — done on the live site
+  17 September 2026 except the email, which fails SMTP authentication (above).
 - Lighthouse or Core Web Vitals numbers. None are quoted anywhere; they should be
   measured on the real host.
