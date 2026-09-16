@@ -615,6 +615,39 @@ function splendid_enquiry_rest_routes() {
 add_action( 'rest_api_init', 'splendid_enquiry_rest_routes' );
 
 /**
+ * Let the X-WP-Nonce header be the nonce WordPress checks on the enquiry route.
+ *
+ * Core's cookie check (rest_cookie_check_errors, priority 100) reads a
+ * _wpnonce field BEFORE the header. The form carries the no-JavaScript
+ * fallback's own _wpnonce, which is never a REST nonce, so every enhanced
+ * submission was refused with "Cookie check failed". enquiry.js now drops the
+ * field, but LiteSpeed serves the combined script for a year under an
+ * unchanged name, so browsers holding the old copy must work too.
+ *
+ * Only on this route and only when a header nonce is present -- that nonce is
+ * still verified by core exactly as before.
+ *
+ * @param WP_Error|null|true $result Authentication result so far.
+ * @return WP_Error|null|true Unchanged.
+ */
+function splendid_enquiry_prefer_header_nonce( $result ) {
+	if ( empty( $_SERVER['HTTP_X_WP_NONCE'] ) || ! isset( $_REQUEST['_wpnonce'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		return $result;
+	}
+
+	$uri   = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	$route = isset( $_GET['rest_route'] ) ? (string) wp_unslash( $_GET['rest_route'] ) : ''; // phpcs:ignore WordPress.Security
+	$path  = (string) wp_parse_url( $uri, PHP_URL_PATH );
+
+	if ( '/splendid/v1/enquiry' === untrailingslashit( $route ) || '/splendid/v1/enquiry' === substr( untrailingslashit( $path ), -20 ) ) {
+		unset( $_REQUEST['_wpnonce'] );
+	}
+
+	return $result;
+}
+add_filter( 'rest_authentication_errors', 'splendid_enquiry_prefer_header_nonce', 99 );
+
+/**
  * REST handler.
  *
  * @param WP_REST_Request $request Request.
