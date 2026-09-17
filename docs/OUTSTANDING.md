@@ -8,9 +8,9 @@ answers arrive. Everything not on these lists is done.
 These come from `handover/briefs/04-legal-and-client-confirmations.md`. Nothing
 here blocks the rest of the build, and nothing here has been guessed at.
 
-1. **Contact details.** Confirm the phone number, the email address enquiries
-   should reach, and the trading/contact address. Can customers visit? Are there
-   opening hours? (No opening hours are published or in the structured data.)
+1. **Contact details.** Phone, email and address are set (020 7998 6802,
+   info@splendidglazing.co.uk, 758 Sidcup Road). Still open: can customers visit,
+   and are there opening hours? (None are published or in the structured data.)
 2. **Brand.** Approve the green palette and the proposed text wordmark, or supply
    the real master logo. The wordmark in the header is a proposal, not a verified
    existing logo. A supplied logo drops into Appearance → Customize → Site Identity
@@ -19,10 +19,8 @@ here blocks the rest of the build, and nothing here has been guessed at.
    glazing, sash and bay designs, the six door ranges, and which conservatory
    types are available. Supply specification sheets and any approved performance
    or security claims.
-4. **Local coverage.** Confirm survey and installation coverage for Sidcup,
-   Eltham, Bexley, Bromley, Chislehurst, South East London and North Kent. The
-   seven area pages are imported as drafts with noindex until this is confirmed
-   and real local evidence exists.
+4. ~~**Local coverage.**~~ **Answered September 2026:** all seven areas are
+   covered. The area pages now import as published and indexable.
 5. **Warranty and compliance.** Supply warranty wording, installation cover and
    independently verifiable accreditation details. No FENSA registration or
    guarantee period is claimed anywhere on the site.
@@ -30,15 +28,20 @@ here blocks the rest of the build, and nothing here has been guessed at.
    permission to publish, plus the exact independent review profile URL. The three
    images on the site are design illustrations and are labelled as such. No
    ratings, reviewer names or testimonials are invented.
-7. **Access.** Staging/hosting access, eventual domain and DNS access, and
-   authenticated mail setup — through a secure channel, not this repository.
+7. ~~**Access.**~~ **Answered:** LaunchFlow holds hosting (Hostinger), DNS and
+   mail access. Credentials stay outside this repository.
 8. **Data practices.** Host, mail and form providers, storage locations, who can
    access leads, retention periods, legal bases, international transfers, and
    whether analytics or marketing will exist. The privacy draft cannot be
-   finished without these. **Since enquiries now also go to BizzFlowUK**, this
-   also needs: a data processing agreement with LaunchFlow UK Limited, the
-   region BizzFlowUK hosts its data in, and how long enquiries are kept there.
-   The privacy draft already names BizzFlowUK and brackets these three facts.
+   finished without these. **Answered September 2026:** website and email on
+   Hostinger; BizzFlowUK data on Hetzner in the EU; enquiry storage in WordPress
+   stays off; no analytics, embeds or cookies (live site checked 17 September
+   2026). The privacy and cookie drafts now say so. **Still open:** retention
+   periods (enquiries, customer records, security logs, backup cycle); the
+   Hostinger data centre location; confirmation of the purposes and legal bases
+   paragraph; and a data processing agreement between LaunchFlow UK Limited and
+   the business — **not yet in place**, so the privacy notice cannot be
+   published until it is signed.
 9. **VAT number, contract terms, cancellation arrangements and complaints
    process**, if these are to be published.
 
@@ -47,13 +50,13 @@ here blocks the rest of the build, and nothing here has been guessed at.
 | Item | Unblocked by |
 |---|---|
 | Publish the three legal notices with the bracketed facts filled in | Answers 1, 8, 9 |
-| Publish the seven local area pages, remove noindex | Answer 4 |
+| Publish the seven local area pages on the live site and untick noindex (the importer keeps an existing page's status, so this is manual — see below) | Nothing — can be done now |
 | Replace the illustrative gallery with real project photography | Answer 6 |
 | Swap the review search link for the verified profile URL (one setting) | Answer 6 |
 | Live enquiry delivery test to the real recipient | Answers 1, 7 |
 | Enable enquiry storage in WordPress, if wanted | Answer 8 |
-| Production deployment, redirects from the existing site, canonical domain | Answer 7 |
-| Cookie inventory and, if optional cookies are added, a consent mechanism | Answer 8 |
+| Redirects from the old site, if any old URLs still receive traffic | Nothing — access is in hand |
+| Consent mechanism — only if optional cookies or analytics are ever added | Not needed today |
 | Re-import the privacy draft so the site carries the BizzFlowUK wording (`wp splendid import --force`, or Settings → Splendid) — the importer skips pages already on the site | Nothing — can be done now |
 
 ## Added after the build: BizzFlowUK
@@ -106,7 +109,7 @@ Still broken on the live site:
 |---|---|---|
 | FluentSMTP: "SMTP Error: Could not authenticate" for info@splendidglazing.co.uk | No enquiry email reaches the business; leads only in BizzFlowUK | Correct mailbox password in Settings → FluentSMTP, then Retry the failed log entry |
 | The form's "Read our privacy notice" link goes to a draft page | Visitors get a 404 while the form collects personal data | Answer 8, fill the brackets, publish the privacy notice (and cookie notice and terms) |
-| The seven local area pages are drafts | Not reachable or indexed | Answer 4 |
+| The seven local area pages are drafts | Not reachable or indexed | Coverage now confirmed: publish them and untick noindex. WP-CLI: `wp post list --post_type=page --post_status=draft --meta_key=_splendid_template --meta_value=local-area --field=ID \| xargs -I{} sh -c 'wp post meta update {} _splendid_noindex 0 && wp post update {} --post_status=publish'` |
 | No-JavaScript fallback still checks a page-cached nonce | A visitor with JavaScript off may see "link expired" | Low priority; exclude `/free-quote` and `/contact` from LiteSpeed page cache, or accept |
 
 ## Deliberately not built

@@ -554,8 +554,7 @@ def convert_page(body_html: str, route: str) -> str:
 # Manifest
 # ---------------------------------------------------------------------------
 DRAFT_TEMPLATES = {
-    # Local pages stay unpublished until the client confirms real coverage.
-    "local-area",
+    # Local area pages publish: coverage of all seven areas confirmed September 2026.
     # Legal notices stay unpublished until the configuration is final and reviewed.
     "legal",
 }

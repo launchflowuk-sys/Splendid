@@ -271,11 +271,6 @@ function splendid_import_run( $args = array() ) {
 			update_post_meta( $post_id, $key, $value );
 		}
 
-		// Local pages stay out of the index until real coverage is confirmed.
-		if ( 'local-area' === $item['template'] ) {
-			update_post_meta( $post_id, '_splendid_noindex', 1 );
-		}
-
 		if ( ! empty( $item['front_page'] ) ) {
 			$front_id = $post_id;
 		}
@@ -492,7 +487,7 @@ function splendid_importer_admin_panel() {
 		<?php
 		printf(
 			/* translators: %d: number of routes. */
-			esc_html__( 'The package contains %d routes. Importing creates any that are missing and refreshes those that have not been edited since the last import. Local area pages and the three legal notices are imported as drafts on purpose.', 'splendid-core' ),
+			esc_html__( 'The package contains %d routes. Importing creates any that are missing and refreshes those that have not been edited since the last import. The three legal notices are imported as drafts on purpose.', 'splendid-core' ),
 			count( $manifest )
 		);
 		?>

@@ -1,6 +1,6 @@
 # Route completion matrix
 
-All 38 routes from `content/SITEMAP.md` are built and import into WordPress with their own page copy. 28 import published; 10 import as drafts on purpose (see notes).
+All 38 routes from `content/SITEMAP.md` are built and import into WordPress with their own page copy. 35 import published; the 3 legal notices import as drafts on purpose (see notes).
 
 Verified on a local WordPress 7.1 install with the theme and plugin active: every route returned HTTP 200 with no PHP notice, warning or fatal, and `/does-not-exist` returned a real 404.
 
@@ -39,13 +39,13 @@ Plus, outside the 38 content routes:
 | 26 | `/privacy-policy` | legal | draft | Draft until hosting, mail, storage and retention are confirmed and the business has reviewed the wording. |
 | 27 | `/cookie-policy` | legal | draft | Draft until hosting, mail, storage and retention are confirmed and the business has reviewed the wording. |
 | 28 | `/terms-of-service` | legal | draft | Draft until hosting, mail, storage and retention are confirmed and the business has reviewed the wording. |
-| 29 | `/windows-doors-sidcup` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
-| 30 | `/windows-doors-eltham` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
-| 31 | `/windows-doors-bexley` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
-| 32 | `/windows-doors-bromley` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
-| 33 | `/windows-doors-chislehurst` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
-| 34 | `/windows-doors-south-east-london` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
-| 35 | `/windows-doors-kent` | local-area | draft | Draft + noindex until the client confirms survey/installation coverage and supplies genuine local evidence. |
+| 29 | `/windows-doors-sidcup` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
+| 30 | `/windows-doors-eltham` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
+| 31 | `/windows-doors-bexley` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
+| 32 | `/windows-doors-bromley` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
+| 33 | `/windows-doors-chislehurst` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
+| 34 | `/windows-doors-south-east-london` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
+| 35 | `/windows-doors-kent` | local-area | publish | Coverage confirmed September 2026. On the live site these still need publishing by hand — see OUTSTANDING. |
 | 36 | `/blog/choosing-your-window-material` | article | publish |  |
 | 37 | `/blog/bifold-or-sliding-doors` | article | publish |  |
 | 38 | `/blog/planning-your-window-replacement` | article | publish |  |
